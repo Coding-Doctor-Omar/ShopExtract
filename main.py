@@ -196,7 +196,7 @@ def parse_product(product: dict) -> dict:
     parsed_product["Body (HTML)"] = product.get("body_html", "")
     parsed_product["Vendor"] = product["vendor"]
     parsed_product["Product Category"] = ""
-    parsed_product["Product Category"] = product.get("product_type", "")
+    parsed_product["Type"] = product.get("product_type", "")
     parsed_product["Tags"] = f'"{', '.join(product['tags'])}"'
     parsed_product["Published"] = True
     main_images = [image["src"] for image in product["images"]]
