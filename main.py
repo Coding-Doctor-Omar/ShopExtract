@@ -1,4 +1,4 @@
-from curl_cffi.requests.exceptions import HTTPError, Timeout
+from curl_cffi.requests.exceptions import HTTPError, Timeout, InvalidURL
 from curl_cffi import AsyncSession
 from json.decoder import JSONDecodeError
 from collections.abc import AsyncGenerator
@@ -465,7 +465,8 @@ async def get_scrape_url(store_url: str, session: AsyncSession) -> str:
     
     if not products_endpoint:
         try:
-            res = await session.get(base_url)
+            print(base_url + "/" if base_url[-1] != "/" else "")
+            res = await session.get(base_url + "/" if base_url[-1] != "/" else "")
 
             # Use regex to find the <STORE>.myshopify.com/products.json URL of the Shopify store in case the normal /products.json is blocked.
             public_store_name = list(set(re.findall(pattern=r'\b([a-zA-Z0-9-]+)\.myshopify\.com\b', string=res.text)))[0]
@@ -492,7 +493,12 @@ async def initiate_scraping_operation(store_url: str, output_csv_name: str="shop
     async with AsyncSession(impersonate="firefox", timeout=10) as scraping_session:
         print(f"Initializing scraping operation...\n")
         scrape_url = await get_scrape_url(store_url=store_url, session=scraping_session)
-        total_products = await get_total_products_count(scrape_url=scrape_url, session=scraping_session)
+
+        try:
+            total_products = await get_total_products_count(scrape_url=scrape_url, session=scraping_session)
+        except InvalidURL:
+            input(f"Failed to find any 'myshopify.com' public domain for {store_url}.\n\nPress ENTER to go to the main menu.")
+            return
         
         
         # Implement the /products.json strategy for shops with less than or equal to 25,000 products.
