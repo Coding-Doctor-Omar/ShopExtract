@@ -1,0 +1,13 @@
+# Extensions
+*.csv
+*.jsonl
+
+# Folders
+venv/
+__pycache__/
+.idea/
+
+# Individual files
+test.py
+backup.py
+terminal.bat
