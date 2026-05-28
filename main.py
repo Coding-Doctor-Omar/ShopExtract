@@ -465,7 +465,6 @@ async def get_scrape_url(store_url: str, session: AsyncSession) -> str:
     
     if not products_endpoint:
         try:
-            print(base_url + "/" if base_url[-1] != "/" else "")
             res = await session.get(base_url + "/" if base_url[-1] != "/" else "")
 
             # Use regex to find the <STORE>.myshopify.com/products.json URL of the Shopify store in case the normal /products.json is blocked.
