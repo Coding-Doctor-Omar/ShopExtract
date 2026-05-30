@@ -13,8 +13,8 @@
 ## Features
 
 1. Interactive menu-based text-user-interface (TUI) with live on-screen scraping progress.
-2. Very fast scraping (~ up to 3,000 products/sec)
-3. Bypasses Cloudflare's anti-bot protections
+2. Very fast scraping (~ up to 3,000 products/sec).
+3. Bypasses Cloudflare's anti-bot protections.
 4. Handles timeouts via auto-retries and exponential back-off.
 5. Bypasses /products.json endpoint blocks by auto-detecting a store's myshopify.com domain.
 6. Produces ready-to-import CSVs (with proper column and row-formatting) to allow the user to immediately use the CSVs in Shopify.
