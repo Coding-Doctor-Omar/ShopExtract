@@ -1,6 +1,7 @@
 from wreq.exceptions import DecodingError, TimeoutError, StatusError, BuilderError
 from wreq import Client, Emulation, Response
 from collections.abc import AsyncGenerator
+from datetime import timedelta
 from asyncio import Semaphore
 from functools import wraps
 import pandas as pd
@@ -495,7 +496,7 @@ async def initiate_scraping_operation(store_url: str, output_csv_name: str="shop
     if not output_csv_name:
         output_csv_name = "shopify"
     
-    scraping_client = Client(emulation=Emulation.Chrome147, cookie_store=True)
+    scraping_client = Client(emulation=Emulation.Chrome147, cookie_store=True, timeout=timedelta(seconds=10))
     
     print(f"Initializing scraping operation...\n")
     scrape_url = await get_scrape_url(store_url=store_url, client=scraping_client)
