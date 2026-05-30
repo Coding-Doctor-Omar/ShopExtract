@@ -1,13 +1,6 @@
-certifi==2026.5.20
-cffi==2.0.0
-curl_cffi==0.15.0
-markdown-it-py==4.2.0
-mdurl==0.1.2
 numpy==2.4.6
 pandas==3.0.3
-pycparser==3.0
-Pygments==2.20.0
 python-dateutil==2.9.0.post0
-rich==15.0.0
 six==1.17.0
 tzdata==2026.2
+wreq==0.11.3
