@@ -368,7 +368,7 @@ async def get_endpoint_products(scrape_info: dict, client: Client) -> AsyncGener
     """Scrapes all available products from a given endpoint.
     Args:
         scrape_info: A dictionary containing necessary info such as the url of the endpoint, total products count of the store.
-        session: A reference of the main scraping session."""
+        client: A reference of the main scraping client."""
 
     scrape_url = scrape_info["url"]
     total_products = scrape_info["total_products"]
@@ -397,7 +397,7 @@ async def get_collections(scrape_url: str, client: Client) -> list:
     """Returns a list of all collections in the store with at least one listed product.
     Args:
         scrape_url: The URL of the valid /products.json endpoint of the store.
-        session: A reference of the main scraping session."""
+        client: A reference of the main scraping client."""
     
     parameters = {
         "page": 1,
@@ -450,7 +450,7 @@ async def get_scrape_url(store_url: str, client: Client) -> str:
     """Returns the valid /products.json URL of a Shopify store.
     Args:
         store_url: The normal user-facing URL of the Shopify store.
-        session: A reference of the main scraping session"""
+        client: A reference of the main scraping client."""
 
     base_url = "https://" + store_url.split("//")[-1].split("/")[0].split("?")[0]
     products_endpoint = base_url + "/products.json"
