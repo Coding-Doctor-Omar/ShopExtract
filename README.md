@@ -2,6 +2,13 @@
 
 ![Repo Logo](shopify_csv_extractor_logo.svg)
 
+## Changelog
+
+**May 30, 2026**
+
+1. Migrated from curl_cffi to wreq.
+2. Upgraded the collections aggregation strategy to have concurrency at the collections level, resulting in a tremendously faster collections aggregation strategy for stores with more than 25k products.
+
 
 ## Features
 
@@ -11,7 +18,7 @@
 4. Handles timeouts via auto-retries and exponential back-off.
 5. Bypasses /products.json endpoint blocks by auto-detecting a store's myshopify.com domain.
 6. Produces ready-to-import CSVs (with proper column and row-formatting) to allow the user to immediately use the CSVs in Shopify.
-7. Does not pass the 15-MB-size and 50,000-row limits per CSV. For large catalogs, it auto-splits the data into multiple CSVs.
+7. Respects the 15-MB-size and 50,000-row Shopify limits per CSV. For large catalogs, it auto-splits the data into multiple CSVs.
 
 ## Outputs
 
@@ -20,7 +27,7 @@ For any Shopify store, the scraper produces a JSON Lines (.jsonl) file that cont
 
 ## Limits
 
-For stores with product catalogs of more than 25,000 products, the scraper falls back to the collections aggregation strategy, which makes it slower.
+For stores with product catalogs of more than 25,000 products, the scraper falls back to the collections aggregation strategy, which makes it slower (mitigated significantly in the May 30, 2026 update).
 
 ## Setup
 
