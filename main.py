@@ -593,7 +593,7 @@ async def main() -> None:
         elif user_choice == 2:
             clear_screen()
             print(f"{LOGO}\n")
-            print("Shopify Scraper is your go-to tool for scraping ANY shopify store on the internet.")
+            print("ShopExtract is your go-to tool for scraping ANY shopify store on the internet.")
             print("It reliably and quickly extracts the entire product catalog of any shopify store and generates Shopify-compatible, import-ready CSVs.")
             print("All you have to do is provide the Shopify store URL.")
             print("-------------------------------------------------------\n")
