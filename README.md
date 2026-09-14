@@ -9,6 +9,10 @@
 1. Migrated from curl_cffi to wreq.
 2. Upgraded the collections aggregation strategy to have concurrency at the collections level, resulting in a tremendously faster collections aggregation strategy for stores with more than 25k products.
 
+**September 14, 2026**
+
+1. Switched emulation profile from Chrome147 to Opera131 for extra stealth.
+
 
 ## Features
 
