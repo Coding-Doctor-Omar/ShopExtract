@@ -3,4 +3,4 @@ pandas==3.0.3
 python-dateutil==2.9.0.post0
 six==1.17.0
 tzdata==2026.2
-wreq==0.11.3
+wreq==0.12.1
