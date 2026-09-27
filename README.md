@@ -19,6 +19,9 @@
 
 1. Switched emulation profile from Chrome147 to Opera131 for extra stealth.
 
+**Semptember 27, 2026**
+
+1. Added a redirect policy for the wreq client. This fixed some errors that occurred on websites such as https://eg.puma.com/en-eg.
 
 ## Features
 
